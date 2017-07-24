@@ -1,7 +1,49 @@
+body {
+  background-image: url('http://bestanimations.com/Nature/Water/rain/rain-nature-animated-gif-21.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+#app {
+  width: 100%;
+}
+
 h1 {
   text-align: center;
 }
 
 .search {
   text-align: center;
+}
+
+.currentWeather {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.city-and-date {
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+}
+
+.currentTemp {
+  font-size: 60px;
+}
+
+.daily-low,
+.daily-high {
+  text-align: center;
+  width: 50%;
+}
+
+.low-high {
+  display: flex;
+  justify-content: center;
+  width: 20%;
 }
