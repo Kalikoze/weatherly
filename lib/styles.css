@@ -69,3 +69,12 @@ button {
 .hourly {
   width: calc(100% / 7);
 }
+
+.day {
+  background-color: gray;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  opacity: .5;
+  width: 100%;
+}
