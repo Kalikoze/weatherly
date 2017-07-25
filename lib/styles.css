@@ -13,20 +13,36 @@ body {
 
 h1 {
   text-align: center;
+  font-size: 48px;
 }
 
 input {
-  opacity: .5;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 24px;
+  height: 40px;
+  width: 40%;
 }
 
 button {
-  color: white;
-  background-color: black;
+  background-color: rgba(255, 255, 255, 0.5);
   border: none;
-  opacity: .5;
+  border-radius: 5px;
+  color: #6A6A6A;
+  cursor: pointer;
+  font-size: 24px;
+  height: 40px;
+  margin-left: 20px;
+  width: 10%;
 }
 
-.search {
+button:hover {
+  color: white;
+}
+
+.search-bar {
   text-align: center;
 }
 
@@ -38,17 +54,20 @@ button {
 }
 
 .city-and-date {
+  font-size: 20px;
   display: flex;
-  justify-content: space-around;
-  width: 20%;
+  justify-content: space-between;
+  width: 25%;
 }
 
 .currentTemp {
-  font-size: 60px;
+  font-size: 160px;
+  margin: 100px auto;
 }
 
 .daily-low,
 .daily-high {
+  font-size: 32px;
   text-align: center;
   width: 50%;
 }
@@ -59,22 +78,29 @@ button {
   width: 20%;
 }
 
-.seven-hours {
+.hourly-weather {
   text-align: center;
-  margin: 0 auto;
+  margin: 50px auto;
   display: flex;
   width: 80%;
 }
 
-.hourly {
+.hourly-card {
   width: calc(100% / 7);
 }
 
+.daily-forecast {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .day {
-  background-color: gray;
+  align-items: center;
+  background-color: rgba(75, 75, 75, 0.5);
   border: 1px solid black;
   display: flex;
+  height: 80px;
   justify-content: space-around;
-  opacity: .5;
-  width: 100%;
+  width: 80%;
 }
