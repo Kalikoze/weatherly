@@ -46,6 +46,11 @@ button:hover {
   text-align: center;
 }
 
+.current-image {
+  height: 150px;
+  width: 150px;
+}
+
 .currentWeather {
   align-items: center;
   display: flex;
@@ -54,10 +59,10 @@ button:hover {
 }
 
 .city-and-date {
-  font-size: 20px;
+  font-size: 15px;
   display: flex;
   justify-content: space-between;
-  width: 25%;
+  width: 40%;
 }
 
 .currentTemp {
