@@ -46,6 +46,12 @@ button:hover {
   text-align: center;
 }
 
+.welcome-message {
+  font-size: 100px;
+  margin-bottom: 1000px;
+  padding-top: 100px;
+}
+
 .current-image {
   height: 150px;
   width: 150px;
