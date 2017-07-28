@@ -5,9 +5,11 @@ body {
   color: white;
   display: flex;
   justify-content: center;
-}
+  -webkit-text-stroke: 1px black;}
 
 #app {
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
 }
 
