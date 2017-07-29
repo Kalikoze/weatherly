@@ -1,5 +1,5 @@
 body {
-  background-image: url('http://bestanimations.com/Nature/Water/rain/rain-nature-animated-gif-21.gif');
+  background-image: url('http://stormandsky.com/gif/14.gif');
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
@@ -10,6 +10,11 @@ body {
 #app {
   background-repeat: no-repeat;
   background-size: cover;
+  width: 100%;
+}
+
+video {
+  height: 100%;
   width: 100%;
 }
 
@@ -34,10 +39,10 @@ button {
   border-radius: 5px;
   color: #6A6A6A;
   cursor: pointer;
-  font-size: 24px;
-  height: 40px;
+  font-size: 32px;
+  height: 50px;
   margin-left: 20px;
-  width: 10%;
+  width: 20%;
 }
 
 button:hover {
@@ -45,13 +50,34 @@ button:hover {
 }
 
 .search-bar {
+  width: 80%;
+}
+
+.welcome-search {
   text-align: center;
+  width: 70%;
+  height: 1000px;
+  font-size: 32px;
+  color: purple;
+}
+
+.search-general {
+  text-align: center;
+  width: 70%;
+  height: 1000px;
+  font-size: 32px;
+  color: purple;
 }
 
 .welcome-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 0;
+  height: 100vh;
+  width: 100%;
   font-size: 100px;
-  margin-bottom: 1000px;
-  padding-top: 100px;
 }
 
 .current-image {
