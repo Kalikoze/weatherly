@@ -5,7 +5,7 @@ body {
   color: white;
   display: flex;
   justify-content: center;
-  -webkit-text-stroke: 1px black;}
+}
 
 #app {
   background-repeat: no-repeat;
@@ -37,6 +37,7 @@ input {
 ul {
   background: rgba(255, 255, 255, 0.5);
   color: black;
+  list-style: none;
   margin: 0;
   padding: 0;
   width: 70%;
@@ -50,7 +51,6 @@ button {
   cursor: pointer;
   font-size: 32px;
   height: 50px;
-  margin-left: 20px;
   width: 20%;
 }
 
@@ -92,6 +92,31 @@ button:hover {
   color: white;
 }
 
+.main-page-search {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50%;
+}
+
+.main-page-search input,
+.main-page-search button {
+  font-size: 16px;
+  height: 30px;
+  width: 30%;
+}
+
+.main-page-search ul {
+  font-size: 16px;
+  width: 30%;
+}
+
+.main-page-search,
+button {
+  margin-top: 20px;
+}
+
 .search-general {
   text-align: center;
   width: 70%;
@@ -100,9 +125,14 @@ button:hover {
   color: orange;
 }
 
+.current-date {
+  margin: 0;
+}
+
 .current-image {
-  height: 150px;
-  width: 150px;
+  height: 300px;
+  margin-top: -50px;
+  width: 300px;
 }
 
 .currentWeather {
@@ -113,28 +143,36 @@ button:hover {
 }
 
 .city-and-date {
-  font-size: 15px;
+  align-items: center;
+  font-size: 20px;
   display: flex;
-  justify-content: space-between;
-  width: 30%;
+  flex-direction: column;
+  /*justify-content: space-between;*/
+  width: 50%;
+  text-align: center;
 }
 
 .currentTemp {
   font-size: 160px;
-  margin: 100px auto;
+  margin: 0;
+  margin-top: -50px;
 }
 
 .daily-low,
 .daily-high {
+  background: white;
+  color: black;
+  border: 1px solid black;
   font-size: 32px;
+  opacity: 0.6;
   text-align: center;
-  width: 50%;
+  width: 40%;
 }
 
 .low-high {
   display: flex;
-  justify-content: center;
-  width: 20%;
+  justify-content: space-between;
+  width: 40%;
 }
 
 .hourly-weather {
