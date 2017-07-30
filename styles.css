@@ -1,5 +1,6 @@
 body {
   background-image: url('http://stormandsky.com/gif/14.gif');
+  /*background-image: url('https://unsplash.it/1000?random');*/
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
@@ -39,6 +40,7 @@ ul {
   color: black;
   list-style: none;
   margin: 0;
+  overflow: hidden;
   padding: 0;
   width: 70%;
 }
@@ -84,12 +86,13 @@ button:hover {
   width: 100%;
 }
 
+
 .welcome-search {
+  color: white;
+  font-size: 32px;
+  height: 50px;
   text-align: center;
   width: 70%;
-  height: 50px;
-  font-size: 32px;
-  color: white;
 }
 
 .main-page-search {
@@ -180,6 +183,10 @@ button {
   margin: 50px auto;
   display: flex;
   width: 80%;
+}
+
+.description {
+  text-align: center;
 }
 
 .hourly-card {
