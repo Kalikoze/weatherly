@@ -45,6 +45,16 @@ ul {
   width: 70%;
 }
 
+li {
+  font-size: 24px;
+  text-align: center;
+}
+
+li:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
 button {
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
@@ -80,7 +90,7 @@ button:hover {
 .welcome-search-div {
   align-items: center;
   display: flex;
-  height: 200px;
+  /*height: 200px;*/
   flex-direction: column;
   justify-content: space-around;
   width: 100%;
@@ -186,6 +196,7 @@ button {
 }
 
 .description {
+  width: 80%;
   text-align: center;
 }
 
