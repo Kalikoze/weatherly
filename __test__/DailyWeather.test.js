@@ -9,15 +9,15 @@ describe('DailyWeather', () => {
   const wImage = MockWeatherData.forecast.simpleforecast.forecastday[0].icon
 
   const Data = {
-    icon: 'sdoifwlfkjas',
+    icon: `../lib/Assets/weather-condition-icons/${wImage}.svg`,
     date: {
-      weekday: 'Monday'
+      weekday: MockWeatherData.forecast.simpleforecast.forecastday[0].date.weekday
     },
     high: {
-      fahrenheit: 23
+      fahrenheit: MockWeatherData.forecast.simpleforecast.forecastday[0].high.fahrenheit
     },
     low: {
-      fahrenheit: 3
+      fahrenheit: MockWeatherData.forecast.simpleforecast.forecastday[0].low.fahrenheit
     }
   }
     //  weatherImage: MockWeatherData.forecast.simpleforecast.forecastday[0].icon,
@@ -28,8 +28,6 @@ describe('DailyWeather', () => {
   // }
 
   beforeEach(() => {
-    console.log('Data ', Data)
-
     wrapper = shallow(<DailyWeather weatherdata={Data} />)
 
   })
@@ -38,4 +36,37 @@ describe('DailyWeather', () => {
     expect(true)
     expect(wrapper).toBeDefined();
   })
+
+  it('should render a div element with a class of day', () => {
+    expect(wrapper.find('div.day').length).toEqual(1)
+  })
+
+  it('should render three p elements', () => {
+    expect(wrapper.find('p').length).toEqual(3)
+  })
+
+  it('should render one p element with a class name of day-name', () => {
+        expect(wrapper.find('p.day-name').length).toEqual(1)
+  })
+
+  it('should render one p element with a class name of day-low', () => {
+        expect(wrapper.find('p.day-low').length).toEqual(1)
+  })
+
+  it('should render one p element with a class name of day-high', () => {
+        expect(wrapper.find('p.day-high').length).toEqual(1)
+  })
+
+   it('should render one img element with a class name of day-image', () => {
+    expect(wrapper.find('img.day-image').length).toEqual(1)
+  })
+
+  it('should have have properties of icon, high, low, and weekday', () => {
+    expect(wrapper.instance()).toHaveProperty('props.weatherdata.icon')
+    expect(wrapper.instance()).toHaveProperty('props.weatherdata.high.fahrenheit')
+    expect(wrapper.instance()).toHaveProperty('props.weatherdata.low.fahrenheit')
+    expect(wrapper.instance()).toHaveProperty('props.weatherdata.date.weekday')
+  })
+
+  
 })
