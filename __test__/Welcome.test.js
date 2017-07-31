@@ -10,7 +10,6 @@ describe('Welcome', () => {
   })
 
   it('should exist', () => {
-    console.log(wrapper)
     expect(wrapper).toBeDefined()
   })
 
