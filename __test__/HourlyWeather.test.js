@@ -24,7 +24,6 @@ describe('HourlyWeather', () => {
   })
 
   it('should exist', () => {
-    expect(true)
     expect(wrapper).toBeDefined();
   })
 
@@ -48,9 +47,15 @@ describe('HourlyWeather', () => {
       expect(wrapper.find('img.hourly-image').length).toEqual(1)
   })
 
-  it('should have properties of image, temperature, and hour', () => {
+  it('should have properties of image', () => {
       expect(wrapper.instance()).toHaveProperty('props.weatherData.image')
+  })
+
+  it('should have properties of hour', () => {
       expect(wrapper.instance()).toHaveProperty('props.weatherData.FCTTIME')
+  })
+
+  it('should have properties of temperature', () => {
       expect(wrapper.instance()).toHaveProperty('props.weatherData.temp')
   })
 
