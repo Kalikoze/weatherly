@@ -99,13 +99,3 @@ describe('DailyWeather', () => {
     expect(description).toHaveProperty('fcttext')
   })
 })
-
-
-
-// expect(wrapper.instance()).toHaveProperty('props.weatherData.location.city + ', ' + props.weatherData.location.state')
-
-
-// expect(wrapper.instance()).toHaveProperty('props.weatherData.current_observation.temp_f')
-// expect(wrapper.instance()).toHaveProperty('props.weatherData.forecast.simpleforecast.forecastday.low.fahrenheit')
-// expect(wrapper.instance()).toHaveProperty('props.weatherData.forecast.simpleforecast.forecastday.high.fahrenheit')
-// expect(wrapper.instance()).toHaveProperty('props.weatherData.forecast.txt_forecast.forecastday.fcttext')

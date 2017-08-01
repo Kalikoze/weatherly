@@ -24,20 +24,140 @@ describe('App', () => {
     expect(wrapper.find('Welcome').length).toEqual(1)
   })
 
-  it.skip('should render Welcome, CurrentWeather, SevenHours, and TenDays components if there is weatherData', () => {
-    wrapper.state().weatherData = {MockWeatherData}
+  it('should render a Welcome component with 6 props', () => {
+     wrapper.state().weatherData = null;
 
-    // wrapper.setState({
-    //   weatherData: {MockWeatherData}
-    // })
-
-    expect(wrapper.state().weatherData).toEqual({MockWeatherData});
-
-    expect(wrapper.find('Welcome').length).toEqual(1)
-    // expect(wrapper.find('CurrentWeather').length).toEqual(1)
-    // expect(wrapper.find('SevenHours').length).toEqual(1)
-    // expect(wrapper.find('TenDays').length).toEqual(1)
+    expect((wrapper.instance()).state.weatherData).toEqual(null);
+    let rendered = ((wrapper.instance()).render());
+    expect((Object.keys(rendered.props.children.props)).length).toEqual(6)    
   })
 
+  it('should render a Welcome component with a prop of header with a value of "Welcome!"', () => {
+     wrapper.state().weatherData = null;
+
+    expect((wrapper.instance()).state.weatherData).toEqual(null);
+    let rendered = ((wrapper.instance()).render());
+    expect(rendered.props.children.props.header).toEqual('Welcome!') 
+  })
+
+  it('should render a Welcome component with a prop of searchDiv with a value of "welcome-search-div"', () => {
+     wrapper.state().weatherData = null;
+
+    expect((wrapper.instance()).state.weatherData).toEqual(null);
+    let rendered = ((wrapper.instance()).render());
+    expect(rendered.props.children.props.searchDiv).toEqual('welcome-search-div') 
+  })
+
+  it('should render a Welcome component with a prop of class with a value of "welcome-search"', () => {
+     wrapper.state().weatherData = null;
+
+    expect((wrapper.instance()).state.weatherData).toEqual(null);
+    let rendered = ((wrapper.instance()).render());
+    expect(rendered.props.children.props.class).toEqual('welcome-search') 
+  })
+
+  it('should render a Welcome component with a prop of onClick with a function as a value', () => {
+     wrapper.state().weatherData = null;
+
+    expect((wrapper.instance()).state.weatherData).toEqual(null);
+    let rendered = ((wrapper.instance()).render());
+    expect(rendered.props.children.props.onClick).toBeInstanceOf(Function) 
+  })
+
+  it('should render a Welcome component with a prop of message with a value of "Enter a city to check the forecast"', () => {
+    wrapper.state().weatherData = null;
+
+    expect((wrapper.instance()).state.weatherData).toEqual(null);
+    let rendered = ((wrapper.instance()).render());
+    expect(rendered.props.children.props.message).toEqual('Enter a city to check the forecast') 
+  })
+
+  it('should render a Welcome component with a prop of div with a value of "welcome-div"', () => {
+    wrapper.state().weatherData = null;
+
+    expect((wrapper.instance()).state.weatherData).toEqual(null);
+    let rendered = ((wrapper.instance()).render());
+    expect(rendered.props.children.props.div).toEqual('welcome-div') 
+  })
+
+  it('should render 4 components when weatherData exists', () => {
+     wrapper.state().weatherData = {MockWeatherData}
+
+    expect((wrapper.instance()).state.weatherData).toEqual({MockWeatherData});
+    let rendered = ((wrapper.instance()).render());
+    expect((rendered.props.children).length).toEqual(4)
+  })
+
+  it('should render a Welcome component when weatherData exists', () => {
+    wrapper.state().weatherData = {MockWeatherData}
+
+    expect((wrapper.instance()).state.weatherData).toEqual({MockWeatherData});
+    let rendered = ((wrapper.instance()).render());
+    expect((rendered.props.children[0].type)).toBeInstanceOf(Function)
+  })
+
+  it('should render a CurrentWeather component when weatherData exists', () => {
+    wrapper.state().weatherData = {MockWeatherData}
+
+    expect((wrapper.instance()).state.weatherData).toEqual({MockWeatherData});
+    let rendered = ((wrapper.instance()).render());
+    expect((rendered.props.children[1].type)).toBeInstanceOf(Function)  
+  })
+
+  it('should render a SevenHours component when weatherData exists', () => {
+    wrapper.state().weatherData = {MockWeatherData}
+
+    expect((wrapper.instance()).state.weatherData).toEqual({MockWeatherData});
+    let rendered = ((wrapper.instance()).render());
+    expect((rendered.props.children[2].type)).toBeInstanceOf(Function) 
+  })
+  
+  it('should render a TenDays component when weatherData exists', () => {
+    wrapper.state().weatherData = {MockWeatherData}
+
+    expect((wrapper.instance()).state.weatherData).toEqual({MockWeatherData});
+    let rendered = ((wrapper.instance()).render());
+    expect((rendered.props.children[3].type)).toBeInstanceOf(Function)
+  })
+
+  it('should render a Welcome component with the prop header with a value of "" when weatherData exists', () => {
+     wrapper.state().weatherData = {MockWeatherData}
+
+    expect((wrapper.instance()).state.weatherData).toEqual({MockWeatherData});
+    let rendered = ((wrapper.instance()).render());
+    expect(rendered.props.children[0].props.header).toEqual('')
+  })
+
+  it('should render a Welcome component with the prop searchDiv with a value of "main-page-search" when weatherData exists', () => {
+     wrapper.state().weatherData = {MockWeatherData}
+
+    expect((wrapper.instance()).state.weatherData).toEqual({MockWeatherData});
+    let rendered = ((wrapper.instance()).render());
+    expect(rendered.props.children[0].props.searchDiv).toEqual('main-page-search')
+  })
+
+  it('should render a Welcome component with the prop class with a value of "search-general" when weatherData exists', () => {
+     wrapper.state().weatherData = {MockWeatherData}
+
+    expect((wrapper.instance()).state.weatherData).toEqual({MockWeatherData});
+    let rendered = ((wrapper.instance()).render());
+    expect(rendered.props.children[0].props.class).toEqual('search-general')
+  })
+
+  it('should render a Welcome component with the prop onClick that is a function when weatherData exists', () => {
+     wrapper.state().weatherData = {MockWeatherData}
+
+    expect((wrapper.instance()).state.weatherData).toEqual({MockWeatherData});
+    let rendered = ((wrapper.instance()).render());
+    expect(rendered.props.children[0].props.onClick).toBeInstanceOf(Function)
+  })
+
+   it('should render a Welcome component with the prop of message with a value of "Enter a city to check the forecast" when weatherData exists', () => {
+     wrapper.state().weatherData = {MockWeatherData}
+
+    expect((wrapper.instance()).state.weatherData).toEqual({MockWeatherData});
+    let rendered = ((wrapper.instance()).render());
+    expect(rendered.props.children[0].props.message).toEqual('Enter a city to check the forecast')
+  })
 
 })
