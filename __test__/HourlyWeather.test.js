@@ -56,4 +56,16 @@ describe('HourlyWeather', () => {
   it('should have properties of temperature', () => {
     expect(wrapper.instance()).toHaveProperty('props.weatherData.temp');
   });
+
+  it('should render the correct hour of the day', () => {
+    const hour = MockWeatherData.hourly_forecast[0].FCTTIME.civil
+
+    expect(wrapper.find('p.hour').text()).toEqual(hour);
+  });
+
+  it('should render the correct hourly temperature for each hour', () => {
+    const hourlyTemp = MockWeatherData.hourly_forecast[0].temp.english + '°';
+
+    expect(wrapper.find('p.hourly-temperature').text()).toEqual(hourlyTemp);
+  });
 });

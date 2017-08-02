@@ -22,4 +22,16 @@ describe('SevenHours', () => {
   it('should render seven DailyWeather components', () => {
     expect(wrapper.find(HourlyWeather).length).toEqual(7);
   });
+
+  it('should have access to an array of 8 hours and splice 7 out', () => {
+    const hourlyArray = MockWeatherData.hourly_forecast;
+
+    expect(hourlyArray.length).toEqual(8);
+
+    const newHourlyArray = hourlyArray.splice(0, 7);
+
+    expect(newHourlyArray.length).toEqual(7);
+
+    expect(wrapper.find(HourlyWeather).length).toEqual(7);
+  });
 });
