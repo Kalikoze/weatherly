@@ -18,7 +18,12 @@ describe('Welcome', () => {
   })
 
   it('should render the h1 and p tags', () => {
+
     expect(wrapper.find('h1').length).toEqual(1);
     expect(wrapper.find('p').length).toEqual(1);
+  })
+
+  it('should render the h1 tag with a value of ""', ()=> {
+    expect(wrapper.find('h1').text()).toEqual('')
   })
 })

@@ -31,7 +31,7 @@ describe('DailyWeather', () => {
   })
 
   it('should render one h2 elements', () => {
-    expect(wrapper.find('h2.currentTemp').length).toEqual(1)
+    expect(wrapper.find('h2.current-temp').length).toEqual(1)
   })
 
   it('should render one h3 elements with a class of current-date', () => {
