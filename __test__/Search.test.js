@@ -83,7 +83,7 @@ describe('Search', () => {
     expect(rendered.props.children[2].props.onClick).toBeInstanceOf(Function)
   })
 
-  it.skip('should call a function when button is clicked', () => {
+  it('should call a function when button is clicked', () => {
     const mockFn = jest.fn();
 
     wrapper = shallow(<Search onClick={mockFn}/>)
@@ -106,26 +106,16 @@ describe('Search', () => {
 
     const Input = wrapper.find('input')
 
-    Input.simulate('keyUp', {key: 'd', keyCode: 68, which: 68})
+    Input.simulate('keyPress', {key: 'd', keyCode: 68, which: 68})
 
     expect(mockFn).toHaveBeenCalledTimes(1)
 
-    Input.simulate('keyUp', {key: 'e', keyCode: 69, which: 69})
+    Input.simulate('keyPress', {key: 'e', keyCode: 69, which: 69})
 
     expect(mockFn).toHaveBeenCalledTimes(2)
   })
 
-  it.skip('should accept string as an argument and return a function', () => {
-    wrapper.instance().setState({
-      search: 'Denver, CO'
-    })
-
-    expect(wrapper.state().search).toEqual('Denver, CO')
-
-    wrapper.instance().getLocation('Denver, CO')
-
-    console.log(wrapper.instance().getLocation('Denver, CO'))
-
-    expect(wrapper.state().search).toEqual('')
+  it('getLocation should accept string as an argument and return a function', () => {
+    expect(wrapper.instance().getLocation('Denver, CO')).toBeInstanceOf(Function)
   })
 })
