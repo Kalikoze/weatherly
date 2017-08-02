@@ -29,7 +29,7 @@ describe('App', () => {
 
     expect((wrapper.instance()).state.weatherData).toEqual(null);
     let rendered = ((wrapper.instance()).render());
-    expect((Object.keys(rendered.props.children.props)).length).toEqual(6)    
+    expect((Object.keys(rendered.props.children.props)).length).toEqual(6)
   })
 
   it('should render a Welcome component with a prop of header with a value of "Welcome!"', () => {
@@ -37,7 +37,7 @@ describe('App', () => {
 
     expect((wrapper.instance()).state.weatherData).toEqual(null);
     let rendered = ((wrapper.instance()).render());
-    expect(rendered.props.children.props.header).toEqual('Welcome!') 
+    expect(rendered.props.children.props.header).toEqual('Welcome!')
   })
 
   it('should render a Welcome component with a prop of searchDiv with a value of "welcome-search-div"', () => {
@@ -45,7 +45,7 @@ describe('App', () => {
 
     expect((wrapper.instance()).state.weatherData).toEqual(null);
     let rendered = ((wrapper.instance()).render());
-    expect(rendered.props.children.props.searchDiv).toEqual('welcome-search-div') 
+    expect(rendered.props.children.props.searchDiv).toEqual('welcome-search-div')
   })
 
   it('should render a Welcome component with a prop of class with a value of "welcome-search"', () => {
@@ -53,7 +53,7 @@ describe('App', () => {
 
     expect((wrapper.instance()).state.weatherData).toEqual(null);
     let rendered = ((wrapper.instance()).render());
-    expect(rendered.props.children.props.class).toEqual('welcome-search') 
+    expect(rendered.props.children.props.class).toEqual('welcome-search')
   })
 
   it('should render a Welcome component with a prop of onClick with a function as a value', () => {
@@ -61,7 +61,7 @@ describe('App', () => {
 
     expect((wrapper.instance()).state.weatherData).toEqual(null);
     let rendered = ((wrapper.instance()).render());
-    expect(rendered.props.children.props.onClick).toBeInstanceOf(Function) 
+    expect(rendered.props.children.props.onClick).toBeInstanceOf(Function)
   })
 
   it('should render a Welcome component with a prop of message with a value of "Enter a city to check the forecast"', () => {
@@ -69,7 +69,7 @@ describe('App', () => {
 
     expect((wrapper.instance()).state.weatherData).toEqual(null);
     let rendered = ((wrapper.instance()).render());
-    expect(rendered.props.children.props.message).toEqual('Enter a city to check the forecast') 
+    expect(rendered.props.children.props.message).toEqual('Enter a city or ZIP code to check the forecast')
   })
 
   it('should render a Welcome component with a prop of div with a value of "welcome-div"', () => {
@@ -77,7 +77,7 @@ describe('App', () => {
 
     expect((wrapper.instance()).state.weatherData).toEqual(null);
     let rendered = ((wrapper.instance()).render());
-    expect(rendered.props.children.props.div).toEqual('welcome-div') 
+    expect(rendered.props.children.props.div).toEqual('welcome-div')
   })
 
   it('should render 4 components when weatherData exists', () => {
@@ -101,7 +101,7 @@ describe('App', () => {
 
     expect((wrapper.instance()).state.weatherData).toEqual({MockWeatherData});
     let rendered = ((wrapper.instance()).render());
-    expect((rendered.props.children[1].type)).toBeInstanceOf(Function)  
+    expect((rendered.props.children[1].type)).toBeInstanceOf(Function)
   })
 
   it('should render a SevenHours component when weatherData exists', () => {
@@ -109,9 +109,9 @@ describe('App', () => {
 
     expect((wrapper.instance()).state.weatherData).toEqual({MockWeatherData});
     let rendered = ((wrapper.instance()).render());
-    expect((rendered.props.children[2].type)).toBeInstanceOf(Function) 
+    expect((rendered.props.children[2].type)).toBeInstanceOf(Function)
   })
-  
+
   it('should render a TenDays component when weatherData exists', () => {
     wrapper.state().weatherData = {MockWeatherData}
 
@@ -157,7 +157,42 @@ describe('App', () => {
 
     expect((wrapper.instance()).state.weatherData).toEqual({MockWeatherData});
     let rendered = ((wrapper.instance()).render());
-    expect(rendered.props.children[0].props.message).toEqual('Enter a city to check the forecast')
+    expect(rendered.props.children[0].props.message).toEqual('Enter a city or ZIP code to check the forecast')
   })
 
+  it('should store a place into localStorage', () => {
+    const city = 'co/denver'
+
+    expect(localStorage.store).toEqual({})
+
+    localStorage.setItem('city', city)
+
+    expect(localStorage.store).toEqual({ city: 'co/denver'})
+  })
+
+  it("storeCity should store a place into localStorage", () => {
+    const city = 'co/denver'
+
+    expect(localStorage.store).toEqual({})
+
+    wrapper.instance().storeCity(city)
+
+    expect(localStorage.store).toEqual({ city: 'co/denver'})
+  })
+
+  it("should retrieve city from localStorage and set it to App state", () => {
+    const city = 'co/denver'
+
+    expect(localStorage.store).toEqual({})
+
+    wrapper.instance().storeCity(city)
+
+    expect(localStorage.store).toEqual({ city: 'co/denver'})
+
+    wrapper.instance().setState({
+      place: localStorage.getItem('city')
+    })
+
+    expect(wrapper.instance().state.place).toEqual('co/denver')
+  })
 })
