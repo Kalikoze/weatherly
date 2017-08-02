@@ -1,121 +1,121 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import Search from '../lib/Components/Search'
+import Search from '../lib/Components/Search';
 import Trie from '../lib/utils/Trie';
-import Cities from '../lib/utils/cities'
-import { MockWeatherData } from '../lib/utils/MockWeatherData'
+import Cities from '../lib/utils/cities';
+import { MockWeatherData } from '../lib/utils/MockWeatherData';
 
 describe('Search', () => {
-  let wrapper
+  let wrapper;
 
-  let newTrie = new Trie()
-  newTrie.populate(Cities.data)
+  let newTrie = new Trie();
+  newTrie.populate(Cities.data);
 
   beforeEach(() => {
-    wrapper = shallow(<Search />)
-  })
+    wrapper = shallow(<Search />);
+  });
 
   it('should exist', () => {
-    expect(wrapper).toBeDefined()
-  })
+    expect(wrapper).toBeDefined();
+  });
 
   it('should render a div element', () => {
-    expect(wrapper.find('div').length).toEqual(1)
-  })
+    expect(wrapper.find('div').length).toEqual(1);
+  });
 
   it('should render an input element', () => {
-    expect(wrapper.find('input').length).toEqual(1)
-  })
+    expect(wrapper.find('input').length).toEqual(1);
+  });
 
   it('should render a ul element', () => {
-    expect(wrapper.find('ul').length).toEqual(1)
-  })
+    expect(wrapper.find('ul').length).toEqual(1);
+  });
 
   it('should render a button element', () => {
-    expect(wrapper.find('button').length).toEqual(1)
-  })
+    expect(wrapper.find('button').length).toEqual(1);
+  });
 
   it('should have input element with 5 props', () => {
-    let rendered = ((wrapper.instance()).render());
+    let rendered = wrapper.instance().render();
 
-    expect(Object.keys(rendered.props.children[0].props).length).toEqual(5)
-  })
+    expect(Object.keys(rendered.props.children[0].props).length).toEqual(5);
+  });
 
   it('should have input element with className prop', () => {
-    let rendered = ((wrapper.instance()).render());
+    let rendered = wrapper.instance().render();
 
-    expect(rendered.props.children[0].props).toHaveProperty('className')
-  })
+    expect(rendered.props.children[0].props).toHaveProperty('className');
+  });
 
   it('should have input element with value prop', () => {
-    let rendered = ((wrapper.instance()).render());
+    let rendered = wrapper.instance().render();
 
-    expect(rendered.props.children[0].props.value).toEqual('')
-  })
+    expect(rendered.props.children[0].props.value).toEqual('');
+  });
 
   it('should have input element with property onKeyUp that is a function', () => {
-    let rendered = ((wrapper.instance()).render());
+    let rendered = wrapper.instance().render();
 
-    expect(rendered.props.children[0].props.onKeyUp).toBeInstanceOf(Function)
-  })
+    expect(rendered.props.children[0].props.onKeyUp).toBeInstanceOf(Function);
+  });
 
   it('should have input element with property onChange that is a function', () => {
-    let rendered = ((wrapper.instance()).render());
+    let rendered = wrapper.instance().render();
 
-    expect(rendered.props.children[0].props.onChange).toBeInstanceOf(Function)
-  })
+    expect(rendered.props.children[0].props.onChange).toBeInstanceOf(Function);
+  });
 
   it('should have input element with placeholder prop with a value of "City, ST"', () => {
-    let rendered = ((wrapper.instance()).render());
+    let rendered = wrapper.instance().render();
 
-    expect(rendered.props.children[0].props.placeholder).toEqual('City, ST / ZIP Code')
-  })
+    expect(rendered.props.children[0].props.placeholder).toEqual('City, ST / ZIP Code');
+  });
 
   it('should have a ul element with a prop of className with a value of "suggestions-list"', () => {
-    let rendered = ((wrapper.instance()).render());
+    let rendered = wrapper.instance().render();
 
-    expect(rendered.props.children[1].props.className).toEqual('suggestions-list')
-  })
+    expect(rendered.props.children[1].props.className).toEqual('suggestions-list');
+  });
 
   it('should have button element with property onClick that is a function', () => {
-    let rendered = ((wrapper.instance()).render());
+    let rendered = wrapper.instance().render();
 
-    expect(rendered.props.children[2].props.onClick).toBeInstanceOf(Function)
-  })
+    expect(rendered.props.children[2].props.onClick).toBeInstanceOf(Function);
+  });
 
   it('should call a function when button is clicked', () => {
     const mockFn = jest.fn();
 
-    wrapper = shallow(<Search onClick={mockFn}/>)
+    wrapper = shallow(<Search onClick={mockFn} />);
 
-    const searchButton = wrapper.find('button')
+    const searchButton = wrapper.find('button');
 
-    searchButton.simulate('click')
+    searchButton.simulate('click');
 
-    expect(mockFn).toHaveBeenCalledTimes(1)
+    expect(mockFn).toHaveBeenCalledTimes(1);
 
-    searchButton.simulate('click')
+    searchButton.simulate('click');
 
-    expect(mockFn).toHaveBeenCalledTimes(2)
-  })
+    expect(mockFn).toHaveBeenCalledTimes(2);
+  });
 
   it.skip('should call a function on keyUp', () => {
     const mockFn = jest.fn();
 
-    wrapper = shallow(<Search onKeyUp={mockFn}/>)
+    wrapper = shallow(<Search onKeyUp={mockFn} />);
 
-    const Input = wrapper.find('input')
+    const Input = wrapper.find('input');
 
-    Input.simulate('keyPress', {key: 'd', keyCode: 68, which: 68})
+    Input.simulate('keyPress', { key: 'd', keyCode: 68, which: 68 });
 
-    expect(mockFn).toHaveBeenCalledTimes(1)
+    expect(mockFn).toHaveBeenCalledTimes(1);
 
-    Input.simulate('keyPress', {key: 'e', keyCode: 69, which: 69})
+    Input.simulate('keyPress', { key: 'e', keyCode: 69, which: 69 });
 
-    expect(mockFn).toHaveBeenCalledTimes(2)
-  })
+    expect(mockFn).toHaveBeenCalledTimes(2);
+  });
 
   it('getLocation should accept string as an argument and return a function', () => {
-    expect(wrapper.instance().getLocation('Denver, CO')).toBeInstanceOf(Function)
-  })
-})
+    expect(wrapper.instance().getLocation('Denver, CO')).toBeInstanceOf(Function);
+  });
+});
