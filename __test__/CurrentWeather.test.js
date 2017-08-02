@@ -100,4 +100,40 @@ describe('DailyWeather', () => {
 
     expect(description).toHaveProperty('fcttext');
   });
+
+  it('should render the correct city', () => {
+    const city = MockWeatherData.location.city + ', ' + MockWeatherData.location.state
+
+    expect(wrapper.find('h1.current-city').text()).toEqual(city)
+  })
+
+  it('should render the correct date', () => {
+  const date = MockWeatherData.forecast.simpleforecast.forecastday[0].date.pretty
+
+  expect(wrapper.find('h3.current-date').text()).toEqual(date)
+});
+
+  it('should render the correct current Temp', () => {
+    const currentTemp = JSON.stringify(MockWeatherData.current_observation.temp_f) + '°'
+
+    expect(wrapper.find('h2.current-temp').text()).toEqual(currentTemp)
+  });
+
+  it('should render the correct current low temperature', () => {
+    const dailyLow = 'Low: ' + MockWeatherData.forecast.simpleforecast.forecastday[0].low.fahrenheit + '°'
+
+    expect(wrapper.find('h4.daily-low').text()).toEqual(dailyLow)
+  });
+
+  it('should render the correct current high temperature', () => {
+    const dailyHigh = 'High: ' + MockWeatherData.forecast.simpleforecast.forecastday[0].high.fahrenheit + '°'
+
+    expect(wrapper.find('h4.daily-high').text()).toEqual(dailyHigh)
+  });
+
+  it('should render the correct description', () => {
+    const description = MockWeatherData.forecast.txt_forecast.forecastday[0].fcttext;
+
+    expect(wrapper.find('p.description').text()).toEqual(description);
+  });
 });

@@ -68,4 +68,22 @@ describe('DailyWeather', () => {
   it('should have a property of weekday ', () => {
     expect(wrapper.instance()).toHaveProperty('props.weatherdata.date.weekday');
   });
+
+  it('should render the correct day for each day', () => {
+    const day = MockWeatherData.forecast.simpleforecast.forecastday[0].date.weekday;
+
+    expect(wrapper.find('p.day-name').text()).toEqual(day);
+  });
+
+  it('should render the correct low fahrenheit for each day', () => {
+    const low = 'Low: ' + MockWeatherData.forecast.simpleforecast.forecastday[0].low.fahrenheit + '°';
+
+    expect(wrapper.find('p.day-low').text()).toEqual(low);
+  });
+
+  it('should render the correct high fahrenheit for each day', () => {
+    const high = 'High: ' + MockWeatherData.forecast.simpleforecast.forecastday[0].high.fahrenheit + '°';
+
+    expect(wrapper.find('p.day-high').text()).toEqual(high);
+  });
 });
